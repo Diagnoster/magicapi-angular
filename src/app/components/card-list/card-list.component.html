@@ -2,8 +2,10 @@
     @for (cards of cardList; track cards) {
         <mat-card class="card" appearance="outlined">
             <mat-card-header>
-                <mat-card-title>{{cards.number}} - {{cards.name}}</mat-card-title>
-                <mat-card-subtitle>{{cards.type}}</mat-card-subtitle>
+                <mat-card-title> 
+                    <span class="card-number">{{cards.number}}</span>
+                    <span class="card-number">{{cards.name}}</span>
+                </mat-card-title>
             </mat-card-header>
             <img class="img" [src]="cards.imageUrl" alt="Card image {{cards.name}}">
         </mat-card>
