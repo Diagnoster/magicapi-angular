@@ -1,0 +1,18 @@
+.container {
+    width: 900px;
+    height: 500px;
+    display: flex;
+    border: 1px solid #000;
+}
+
+.container-div-1 {
+    width: 33.33%;
+    height: 100%;
+    background-color: rgb(36, 36, 36);
+}
+
+.container-div-2 {
+    width: 66.67%;
+    height: 100%;
+    background-color: rgb(36, 36, 36);
+}

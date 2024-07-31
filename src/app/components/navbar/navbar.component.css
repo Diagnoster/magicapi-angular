@@ -1,0 +1,11 @@
+.toolbar {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-style: dashed;
+}
+
+p {
+    color: white;
+}

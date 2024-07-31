@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MgtService } from '../../services/mgt.service';
-import { Card } from '../../models/card/card';
+import { Card } from '../../models/card';
 import { CommonModule } from '@angular/common';
 import { forkJoin } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
