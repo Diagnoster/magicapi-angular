@@ -1,0 +1,29 @@
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    max-width: 250px;
+    max-height: 370px;
+    margin: 3px;
+    margin-bottom: 40px;
+}
+
+.img {
+    width: 245px;
+    height: 350px;
+}
+
+mat-card-title {
+    max-width: 220px;
+    font-size: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis; /* show ... */
+    white-space: nowrap;
+}
+
+mat-card-subtitle {
+    font-size: 12px;
+}

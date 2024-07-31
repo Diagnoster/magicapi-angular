@@ -1,1 +1,11 @@
-<p>card-list works!</p>
+<div class="card-container">
+    @for (cards of cardList; track cards) {
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title>{{cards.number}} - {{cards.name}}</mat-card-title>
+                <mat-card-subtitle>{{cards.type}}</mat-card-subtitle>
+            </mat-card-header>
+            <img class="img" [src]="cards.imageUrl" alt="Card image {{cards.name}}">
+        </mat-card>
+    }
+</div>
