@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
-import { NgOptimizedImage } from '@angular/common'
 
 @Component({
   selector: 'app-navbar',
@@ -10,8 +9,7 @@ import { NgOptimizedImage } from '@angular/common'
   imports: [
     MatIconModule,
     MatToolbarModule,
-    MatButtonModule,
-    NgOptimizedImage
+    MatButtonModule
   ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'

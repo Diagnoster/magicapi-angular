@@ -22,7 +22,6 @@ export class CardListComponent implements OnInit {
   
   ngOnInit(): void {
     this.loadAllCards();
-    console.log(this.cardList);
   }
 
   constructor(private mtgService: MgtService) {
@@ -44,7 +43,6 @@ export class CardListComponent implements OnInit {
               this.cardList.push(card);
             }
           });
-          console.log('Lista de Cards:', this.cardList);
         }
       }
     });
