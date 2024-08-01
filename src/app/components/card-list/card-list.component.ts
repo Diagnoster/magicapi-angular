@@ -4,6 +4,10 @@ import { Card } from '../../models/card';
 import { CommonModule } from '@angular/common';
 import { forkJoin } from 'rxjs';
 import { MatCardModule } from '@angular/material/card';
+import { Router } from '@angular/router';
+import {MatDialogModule, MatDialog} from '@angular/material/dialog';
+import { CardDetailsComponent } from '../card-details/card-details.component';
+
 
 
 @Component({
@@ -11,7 +15,8 @@ import { MatCardModule } from '@angular/material/card';
   standalone: true,
   imports: [
     CommonModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   templateUrl: './card-list.component.html',
   styleUrl: './card-list.component.css'
@@ -24,7 +29,7 @@ export class CardListComponent implements OnInit {
     this.loadAllCards();
   }
 
-  constructor(private mtgService: MgtService) {
+  constructor(private mtgService: MgtService, public dialog: MatDialog) {
   }
 
   loadAllCards(): void {
@@ -38,6 +43,7 @@ export class CardListComponent implements OnInit {
                 cardData.type,
                 cardData.rarity,
                 cardData.number,
+                cardData.text,
                 cardData.imageUrl
               );
               this.cardList.push(card);
@@ -45,6 +51,12 @@ export class CardListComponent implements OnInit {
           });
         }
       }
+    });
+  }
+
+  cardDetails(card: any) {
+    this.dialog.open(CardDetailsComponent, {
+      data: { card },
     });
   }
 

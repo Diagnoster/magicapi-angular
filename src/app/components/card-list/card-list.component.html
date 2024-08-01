@@ -1,13 +1,13 @@
 <div class="card-container">
     @for (cards of cardList; track cards) {
-        <mat-card class="card" appearance="outlined">
+        <mat-card class="card" appearance="outlined" (click)="cardDetails(cards)">
             <mat-card-header>
                 <mat-card-title> 
                     <span class="card-number">{{cards.number}}</span>
                     <span class="card-number">{{cards.name}}</span>
                 </mat-card-title>
             </mat-card-header>
-            <img class="img" [src]="cards.imageUrl" alt="Card image {{cards.name}}">
+            <img class="img" src="magic.png" alt="Icone site">
         </mat-card>
     }
 </div>
