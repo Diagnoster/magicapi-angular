@@ -42,6 +42,7 @@ export class CardListComponent implements OnInit {
                 cardData.name,
                 cardData.type,
                 cardData.rarity,
+                cardData.set,
                 cardData.number,
                 cardData.text,
                 cardData.imageUrl

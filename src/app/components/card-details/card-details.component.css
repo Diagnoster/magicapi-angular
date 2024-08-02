@@ -31,3 +31,31 @@ mat-card {
     margin: 2%;
 }
 
+mat-card-content {
+    text-align: justify;
+}
+
+mat-divider {
+    border-top-color: rgb(44, 43, 43);
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.extra-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.value-info {
+    padding: 1%;
+    border-radius: 10px;
+}
+
+.set {
+    margin-left: 2%;
+}
+
+.info {
+    margin-right: 1%;
+}

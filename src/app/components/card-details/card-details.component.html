@@ -1,10 +1,20 @@
 <div class="container">
     <div class="container-div-1">
-        <h6>{{card.name}}</h6>
-        <p>{{card.type}}</p>
+        <h6>{{ card.name }}</h6>
+        <p>{{ card.type }}</p>
         <img class="img" src="magic.png" alt="Icone site">
+        <div class="extra-info">
+            <p class="info rarity"> Rarity: </p> 
+            <p class="value-info"> {{ card.rarity }} </p>
+            <p class="info set"> Set: </p>
+            <p class="value-info"> {{ card.set }}</p>
+        </div>
+        <mat-divider></mat-divider>
         <mat-card appearance="outlined">
-            <mat-card-content>{{card.text}}</mat-card-content>
+            <mat-card-header>
+                <mat-card-subtitle>Description</mat-card-subtitle>
+              </mat-card-header>            
+            <mat-card-content>{{ card.text }}</mat-card-content>
         </mat-card>
     </div>
 </div>
