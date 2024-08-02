@@ -3,6 +3,8 @@ import { Card } from '../../models/card';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { Set } from '../../models/enum/card';
+import { CommonModule } from '@angular/common';
 
 
 @Component({
@@ -10,7 +12,8 @@ import { MatDividerModule } from '@angular/material/divider';
   standalone: true,
   imports: [
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    CommonModule
   ],
   templateUrl: './card-details.component.html',
   styleUrl: './card-details.component.css'
@@ -25,6 +28,11 @@ export class CardDetailsComponent implements OnInit{
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     this.card = data.card;
+  }
+
+  getColorForSet(set: string): string {
+    console.log(set);
+    return Set [set as keyof typeof Set];
   }
 
 }

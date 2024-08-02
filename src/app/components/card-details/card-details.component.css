@@ -1,6 +1,6 @@
 .container {
-    width: 500px;
-    height: 800px;
+    max-width: 500px;
+    height: 700px;
     display: flex;
     border: 1px solid #000;
 }
@@ -49,11 +49,24 @@ mat-divider {
     background-size: 100%;
     border-radius: 20px;
     margin: 2%;
+    padding-top: 3%;
+    width: auto;
 }
 
 .value-info {
+    font-size: 20px;
     padding: 1%;
     border-radius: 10px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgb(0, 0, 0);
+}
+
+.value-set {
+    font-size: 20px;
+    font-weight: bold;
+    color: darkgreen;
+    text-shadow: 1px 1px 2px black;
+    
 }
 
 .set {

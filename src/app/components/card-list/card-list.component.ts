@@ -57,6 +57,7 @@ export class CardListComponent implements OnInit {
 
   cardDetails(card: any) {
     this.dialog.open(CardDetailsComponent, {
+      width: '500px',
       data: { card },
     });
   }

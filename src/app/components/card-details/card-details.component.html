@@ -5,9 +5,9 @@
         <img class="img" src="magic.png" alt="Icone site">
         <div class="extra-info">
             <p class="info rarity"> Rarity: </p> 
-            <p class="value-info"> {{ card.rarity }} </p>
+            <p class="value-info" [ngStyle]="{ 'color': getColorForSet(card.rarity) }"> {{ card.rarity }} </p>
             <p class="info set"> Set: </p>
-            <img class="type-icon" src="https://upload.wikimedia.org/wikipedia/en/5/51/The_Common_version_of_the_symbol_used_to_identify_cards_released_as_part_of_the_Limited_Edition_Alpha_set_for_the_trading_card_game_Magic_the_Gathering.svg" alt="Magic the Gathering Common Symbol">
+            <p class="value-set"> {{ card.set }} </p>
         </div>
         <mat-divider></mat-divider>
         <mat-card appearance="outlined">
