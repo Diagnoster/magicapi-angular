@@ -43,8 +43,11 @@ export class CardListComponent implements OnInit {
                 cardData.type,
                 cardData.rarity,
                 cardData.set,
+                cardData.cmc,
                 cardData.number,
                 cardData.text,
+                cardData.power,
+                cardData.toughness,
                 cardData.imageUrl
               );
               this.cardList.push(card);

@@ -4,17 +4,50 @@
         <p>{{ card.type }}</p>
         <img class="img" src="magic.png" alt="Icone site">
         <div class="extra-info">
-            <p class="info rarity"> Rarity: </p> 
+            <p class="label rarity"> Rarity: </p> 
             <p class="value-info" [ngStyle]="{ 'color': getColorForSet(card.rarity) }"> {{ card.rarity }} </p>
-            <p class="info set"> Set: </p>
+            <p class="label set"> Set: </p>
             <p class="value-set"> {{ card.set }} </p>
+            @if(card.power || card.toughness != undefined) {
+                <p class="info pt"> P/T: </p>
+                <p class="power-toughness">{{ card.power + "/" + card.toughness }}</p>
+            }
         </div>
         <mat-divider></mat-divider>
         <mat-card appearance="outlined">
-            <mat-card-header>
-                <mat-card-subtitle>Description</mat-card-subtitle>
-              </mat-card-header>            
-            <mat-card-content>{{ card.text }}</mat-card-content>
+            <mat-tab-group>
+                <mat-tab label="Description">
+                    <mat-card-header>
+                        <mat-card-subtitle>Description</mat-card-subtitle>
+                      </mat-card-header>            
+                    <mat-card-content>{{ card.text }}</mat-card-content>
+                </mat-tab>
+                <mat-tab label="Card Informations">
+                    <mat-card-header>
+                        <mat-card-subtitle>Informations</mat-card-subtitle>
+                      </mat-card-header>            
+                    <mat-card-content class="informations">
+                        @if(card.power !== undefined && card.power !== null) {
+                            <span>
+                                <span class="label"> Power: </span>
+                                <span class="value power">{{ card.power }}</span>
+                            </span>
+                        }
+                        @if(card.toughness !== undefined && card.toughness !== null) {
+                            <span>
+                                <span class="label"> Toughness: </span>
+                                <span class="value toughness">{{ card.toughness }}</span>
+                            </span>
+                        }
+                        @if(card.cmc !== undefined && card.cmc !== null) {
+                            <span>
+                                <span class="label"> Mana Value: </span>
+                                <span class="value cmc">{{ card.cmc }}</span>
+                            </span>
+                        }
+                    </mat-card-content>
+                </mat-tab>
+            </mat-tab-group>
         </mat-card>
     </div>
 </div>

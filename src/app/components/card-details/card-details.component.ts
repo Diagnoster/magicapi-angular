@@ -5,6 +5,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { Set } from '../../models/enum/card';
 import { CommonModule } from '@angular/common';
+import { MatTabsModule } from '@angular/material/tabs';
+
 
 
 @Component({
@@ -13,7 +15,8 @@ import { CommonModule } from '@angular/common';
   imports: [
     MatCardModule,
     MatDividerModule,
-    CommonModule
+    CommonModule,
+    MatTabsModule
   ],
   templateUrl: './card-details.component.html',
   styleUrl: './card-details.component.css'
@@ -21,6 +24,8 @@ import { CommonModule } from '@angular/common';
 export class CardDetailsComponent implements OnInit{
 
   card!: Card;
+  lotsOfTabs = new Array(30).fill(0).map((_, index) => `Tab ${index}`);
+
 
   ngOnInit(): void {
     

@@ -1,8 +1,9 @@
 .container {
     max-width: 500px;
-    height: 700px;
+    height: 750px;
     display: flex;
     border: 1px solid #000;
+    overflow: hidden;
 }
 
 .container-div-1 {
@@ -13,13 +14,13 @@
 }
 .img {
     border-radius: 20px;
-    width: 300px;
-    height: 350px;
+    width: 280px;
+    height: 330px;
 }
 
 h6 {
     text-align: center;
-    margin-top: 2%;
+    padding-top: 1%;
     color: gold;
 }
 
@@ -28,7 +29,7 @@ p {
 }
 
 mat-card {
-    margin: 2%;
+    margin: 1%;
 }
 
 mat-card-content {
@@ -59,27 +60,48 @@ mat-divider {
     border-radius: 10px;
     font-weight: bold;
     text-shadow: 1px 1px 2px rgb(0, 0, 0);
+    padding-right: 3%;
 }
 
 .value-set {
     font-size: 20px;
     font-weight: bold;
     color: darkgreen;
+    text-shadow: 1px 1px 2px black; 
+    padding-right: 3%;
+}
+
+.power-toughness {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(122, 74, 19);
     text-shadow: 1px 1px 2px black;
-    
 }
 
-.set {
-    margin-left: 2%;
-
-}
-
-.info {
-    margin-right: 1%;
+.label {
     color: black;
     font-weight: bold;
 }
 
-.type-icon {
-    color: white;
+.informations {
+    display: flex;
+    flex-direction: column;
+}
+
+.value {
+    font-size: 20px;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px black; 
+}
+
+.power {
+    color: rgb(199, 11, 5);
+}
+
+.toughness {
+    color: rgb(197, 128, 0);
+}
+
+.cmc {
+    color: rgb(21, 182, 231);
 }

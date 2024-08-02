@@ -5,7 +5,7 @@
 }
 
 mat-card {
-    background-image: url(../../../../public/background_cardlist.jfif);
+    background-image: url(../../../../public/cardlist.jpg);
     border-radius: 20px;
     border: black;
     cursor: pointer;
