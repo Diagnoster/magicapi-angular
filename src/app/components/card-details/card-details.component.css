@@ -8,7 +8,7 @@
 .container-div-1 {
     width: 100%;
     height: 100%;
-    background-color: rgb(63, 63, 63);
+    background-image: url(../../../../public/back.avif);
     text-align: center;
 }
 .img {
@@ -45,6 +45,10 @@ mat-divider {
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(../../../../public/background.jpg);
+    background-size: 100%;
+    border-radius: 20px;
+    margin: 2%;
 }
 
 .value-info {
@@ -54,8 +58,15 @@ mat-divider {
 
 .set {
     margin-left: 2%;
+
 }
 
 .info {
     margin-right: 1%;
+    color: black;
+    font-weight: bold;
+}
+
+.type-icon {
+    color: white;
 }
