@@ -36,7 +36,6 @@ export class CardDetailsComponent implements OnInit{
   }
 
   getColorForSet(set: string): string {
-    console.log(set);
     return Set [set as keyof typeof Set];
   }
 

@@ -5,7 +5,6 @@
 }
 
 mat-card {
-    background-image: url(../../../../public/cardlist.jpg);
     border-radius: 20px;
     border: black;
     cursor: pointer;
@@ -17,6 +16,7 @@ mat-card {
     max-height: 300px;
     margin: 3px;
     margin-bottom: 15px;
+    background-image: url(../../../../public/cardlist.jpg);
 }
 
 .img {

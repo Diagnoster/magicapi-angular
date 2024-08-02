@@ -43,6 +43,7 @@ export class CardListComponent implements OnInit {
                 cardData.type,
                 cardData.rarity,
                 cardData.set,
+                cardData.setName,
                 cardData.cmc,
                 cardData.number,
                 cardData.text,
