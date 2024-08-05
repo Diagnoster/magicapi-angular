@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Card } from '../models/card';
 
 @Injectable({
   providedIn: 'root'
@@ -11,9 +12,9 @@ export class MgtService {
 
   constructor(private http: HttpClient) { }
 
-  getCards(): Observable<any> {
-    const url =`${this.URL_BASE}/cards`;
-    return this.http.get<any>(url);
+  getCards(page: number, pageSize: number): Observable<Card> {
+    const url = `${this.URL_BASE}/cards?page=${page}&pageSize=${pageSize}`;
+    return this.http.get<Card>(url);
   }
 
 }
