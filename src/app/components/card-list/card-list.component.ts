@@ -1,17 +1,17 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Observable, Subject } from 'rxjs';
-import { debounceTime, switchMap, map, startWith } from 'rxjs/operators';
+import { Observable, of, Subject } from 'rxjs';
+import { debounceTime, switchMap, map, startWith, filter } from 'rxjs/operators';
 import { MgtService } from '../../services/mgt.service';
 import { Card } from '../../models/card';
 import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { CardDetailsComponent } from '../card-details/card-details.component';
-import {MatInputModule} from '@angular/material/input';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {AsyncPipe} from '@angular/common';
+import { MatInputModule } from '@angular/material/input';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-card-list',
@@ -48,6 +48,7 @@ export class CardListComponent implements OnInit {
   
     this.searchControl.valueChanges.pipe(
       debounceTime(300), // wait 300ms
+      filter(term => term !== ''),
       switchMap(term => this.mtgService.getFilteredCards(term!)),
       map(response => response.cards || [])
     ).subscribe(cards => {
@@ -67,6 +68,19 @@ export class CardListComponent implements OnInit {
           cardData.imageUrl
         ));
     });
+  
+   // if term = ''
+    this.searchControl.valueChanges.pipe(
+      debounceTime(300),
+      filter(term => term === ''), 
+      switchMap(() => {
+        // reset variables and card list
+        this.cardList = [];
+        this.currentPage = 1;
+        this.pageSize = 100;
+        return of(this.loadCards());
+      })
+    ).subscribe();
   }
 
   loadCards(): void {
