@@ -9,7 +9,7 @@
             <p class="label set"> Set: </p>
             <p class="value-set"> {{ card.set }} </p>
             @if(card.power || card.toughness != undefined) {
-                <p class="info pt"> P/T: </p>
+                <p class="label pt"> P/T: </p>
                 <p class="power-toughness">{{ card.power + "/" + card.toughness }}</p>
             }
         </div>

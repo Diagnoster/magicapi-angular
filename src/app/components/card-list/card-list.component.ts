@@ -45,25 +45,27 @@ export class CardListComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadCards();
-
+  
     this.searchControl.valueChanges.pipe(
       debounceTime(300), // wait 300ms
       switchMap(term => this.mtgService.getFilteredCards(term!)),
       map(response => response.cards || [])
     ).subscribe(cards => {
-      this.filteredCards = cards.map((cardData: any) => new Card(
-        cardData.name,
-        cardData.type,
-        cardData.rarity,
-        cardData.set,
-        cardData.setName,
-        cardData.cmc,
-        cardData.number,
-        cardData.text,
-        cardData.power,
-        cardData.toughness,
-        cardData.imageUrl
-      ));
+      this.filteredCards = cards
+        .filter((cardData: any) => cardData.imageUrl !== undefined)
+        .map((cardData: any) => new Card(
+          cardData.name,
+          cardData.type,
+          cardData.rarity,
+          cardData.set,
+          cardData.setName,
+          cardData.cmc,
+          cardData.number,
+          cardData.text,
+          cardData.power,
+          cardData.toughness,
+          cardData.imageUrl
+        ));
     });
   }
 
