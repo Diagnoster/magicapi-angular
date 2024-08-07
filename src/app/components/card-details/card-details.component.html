@@ -2,7 +2,16 @@
     <div class="container-div-1">
         <h6>{{ card.name }}</h6>
         <p>{{ card.type }}</p>
-        <img class="img" [src]="card.imageUrl" alt="Icone site">
+        <div class="flip-container">
+            <div class="flipper">
+                <div class="front">
+                    <img class="img" [src]="card.imageUrl" alt="Card Image {{card.name}}">
+                </div>
+                <div class="back">
+                    <img class="img" src="backCard.webp" alt="Back Image">
+                </div>
+            </div>
+        </div>
         <div class="extra-info">
             <p class="label rarity"> Rarity: </p> 
             <p class="value-info" [ngStyle]="{ 'color': getColorForSet(card.rarity) }"> {{ card.rarity }} </p>
