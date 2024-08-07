@@ -10,18 +10,20 @@ mat-card {
     cursor: pointer;
 }
 
+mat-form-field {
+    justify-content: center;
+    display: flex;
+}
+
 .card {
     min-width: 200px;
     max-width: 200px;
     max-height: 300px;
     margin: 3px;
     margin-bottom: 15px;
-    background-image: url(../../../../public/cardlist.jpg);
 }
 
 .img {
-    width: 195px;
-    height: 290px;
     border-radius: 30px;
 }
 

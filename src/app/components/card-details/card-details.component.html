@@ -2,7 +2,7 @@
     <div class="container-div-1">
         <h6>{{ card.name }}</h6>
         <p>{{ card.type }}</p>
-        <img class="img" src="magic.png" alt="Icone site">
+        <img class="img" [src]="card.imageUrl" alt="Icone site">
         <div class="extra-info">
             <p class="label rarity"> Rarity: </p> 
             <p class="value-info" [ngStyle]="{ 'color': getColorForSet(card.rarity) }"> {{ card.rarity }} </p>

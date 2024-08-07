@@ -17,4 +17,8 @@ export class MgtService {
     return this.http.get<Card>(url);
   }
 
+  getFilteredCards(name: string): Observable<any> {
+    const url = `${this.URL_BASE}/cards?name=${name}`;
+    return this.http.get<any>(url);
+  }
 }

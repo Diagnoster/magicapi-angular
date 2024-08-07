@@ -9,9 +9,9 @@
 .container-div-1 {
     width: 100%;
     height: 100%;
-    background-image: url(../../../../public/back.avif);
     text-align: center;
 }
+
 .img {
     border-radius: 20px;
     width: 280px;
