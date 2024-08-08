@@ -13,6 +13,11 @@
             </div>
         </div>
         <div class="extra-info">
+            <mat-icon class="flavor" 
+                aria-hidden="false" 
+                aria-label="Chat icon" 
+                fontIcon="chat"
+                matTooltip="{{card.flavor}}"></mat-icon>
             <p class="label rarity"> Rarity: </p> 
             <p class="value-info" [ngStyle]="{ 'color': getColorForSet(card.rarity) }"> {{ card.rarity }} </p>
             <p class="label set"> Set: </p>

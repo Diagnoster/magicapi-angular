@@ -107,6 +107,11 @@ mat-divider {
     color: rgb(21, 182, 231);
 }
 
+.flavor {
+    margin-bottom: 2%;
+    margin-right: 2%;
+}
+
 /************************************************ Flip Animation Styles ************************************************/
 .flip-container {
     perspective: 1000px;

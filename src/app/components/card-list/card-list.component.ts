@@ -65,7 +65,8 @@ export class CardListComponent implements OnInit {
           cardData.text,
           cardData.power,
           cardData.toughness,
-          cardData.imageUrl
+          cardData.imageUrl,
+          cardData.flavor
         ));
     });
   
@@ -104,7 +105,8 @@ export class CardListComponent implements OnInit {
                   cardData.text,
                   cardData.power,
                   cardData.toughness,
-                  cardData.imageUrl
+                  cardData.imageUrl,
+                  cardData.flavor
                 );
                 this.cardList.push(card);
               }

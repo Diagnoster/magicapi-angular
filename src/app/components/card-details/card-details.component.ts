@@ -6,6 +6,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { Set } from '../../models/enum/set';
 import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 
 
@@ -16,7 +18,9 @@ import { MatTabsModule } from '@angular/material/tabs';
     MatCardModule,
     MatDividerModule,
     CommonModule,
-    MatTabsModule
+    MatTabsModule,
+    MatIconModule,
+    MatTooltipModule
   ],
   templateUrl: './card-details.component.html',
   styleUrl: './card-details.component.css'

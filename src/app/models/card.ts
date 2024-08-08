@@ -10,8 +10,9 @@ export class Card {
   power: string;
   toughness: string;
   imageUrl: string;
+  flavor: string;
 
-  constructor(name: string, type: string, rarity: string, set: string, setName: string, cmc: string, number: string, text: string, power: string, toughness: string, imageUrl: string) {
+  constructor(name: string, type: string, rarity: string, set: string, setName: string, cmc: string, number: string, text: string, power: string, toughness: string, imageUrl: string, flavor: string) {
     this.name = name;
     this.type = type;
     this.rarity = rarity;
@@ -23,5 +24,6 @@ export class Card {
     this.power = power;
     this.toughness = toughness;
     this.imageUrl = imageUrl;
+    this.flavor = flavor;
   }
  }
