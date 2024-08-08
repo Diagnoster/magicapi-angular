@@ -1,22 +1,21 @@
 <div class="search-container">
-    <mat-form-field appearance="fill">
+  <mat-form-field appearance="fill">
       <mat-label>Search Cards</mat-label>
       <input matInput [formControl]="searchControl" [matAutocomplete]="auto">
       <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCardSelected($event.option.value)">
-        <mat-option *ngFor="let card of filteredCards" [value]="card">
-          {{card.name}}
-        </mat-option>
+          <mat-option *ngFor="let card of filteredCards" [value]="card">
+              {{card.name}}
+          </mat-option>
       </mat-autocomplete>
-    </mat-form-field>
-  </div>
-  <div class="card-container">
-    <mat-card class="card" *ngFor="let card of cardList" (click)="cardDetails(card)">
+  </mat-form-field>
+</div>
+<div class="card-container">
+  <mat-card class="card" *ngFor="let card of cardList" (click)="cardDetails(card)">
       <mat-card-header>
-        <mat-card-title>
-          <span class="card-number">{{card.number}} {{card.name}}</span>
-        </mat-card-title>
+          <mat-card-title>
+              <span class="card-number">{{card.number}} {{card.name}}</span>
+          </mat-card-title>
       </mat-card-header>
       <img class="img" [src]="card.imageUrl" alt="Card Image {{card.name}}">
-    </mat-card>
-  </div>
-  
+  </mat-card>
+</div>
