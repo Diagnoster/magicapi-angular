@@ -12,6 +12,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AsyncPipe } from '@angular/common';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 
 @Component({
   selector: 'app-card-list',
@@ -23,7 +25,8 @@ import { AsyncPipe } from '@angular/common';
     MatInputModule,
     MatAutocompleteModule,
     MatFormFieldModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    MatProgressBarModule
   ],
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.css']
@@ -38,6 +41,7 @@ export class CardListComponent implements OnInit {
   totalCards = 0;
   isLoading = false;
   endCards = false;
+  loading: boolean = true;
 
   private searchTerms = new Subject<string>();
 
@@ -52,6 +56,7 @@ export class CardListComponent implements OnInit {
       switchMap(term => this.mtgService.getFilteredCards(term!)),
       map(response => response.cards || [])
     ).subscribe(cards => {
+      this.loading = true;
       this.filteredCards = cards
         .filter((cardData: any) => cardData.imageUrl !== undefined)
         .map((cardData: any) => new Card(
@@ -68,6 +73,7 @@ export class CardListComponent implements OnInit {
           cardData.imageUrl,
           cardData.flavor
         ));
+        this.loading = false;
     });
   
    // if term = ''
@@ -85,6 +91,7 @@ export class CardListComponent implements OnInit {
   }
 
   loadCards(): void {
+    this.loading = true;
     if (this.isLoading || this.endCards) return;
     this.isLoading = true;
 
@@ -117,9 +124,11 @@ export class CardListComponent implements OnInit {
             }
             this.currentPage++;
           }
+          this.loading = false;
           this.isLoading = false;
         },
         error: () => {
+          this.loading = false;
           this.isLoading = false;
         }
       });

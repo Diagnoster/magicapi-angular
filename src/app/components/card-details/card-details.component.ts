@@ -10,7 +10,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 
-
 @Component({
   selector: 'app-card-details',
   standalone: true,
