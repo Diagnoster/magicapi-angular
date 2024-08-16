@@ -8,9 +8,9 @@
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
-  </div>
-  <div class="card-container">
-    <mat-card class="card" *ngFor="let card of cardList" (click)="cardDetails(card)">
+</div>
+<div class="card-container">
+    <mat-card class="card" *ngFor="let card of cardList" (click)="cardDetails(card, cardList)">
         <mat-card-header>
             <mat-card-title>
                 <span class="card-number">{{card.number}} {{card.name}}</span>
@@ -18,9 +18,7 @@
         </mat-card-header>
         <img class="img" [src]="card.imageUrl" alt="Card Image {{card.name}}">
     </mat-card>
-  </div>
-  @if (loading) {
-      <mat-progress-bar mode="query"></mat-progress-bar>
-  }
-  
-  
+</div>
+@if (loading) {
+    <mat-progress-bar mode="query"></mat-progress-bar>
+}

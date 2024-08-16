@@ -35,6 +35,8 @@ mat-card {
 
 mat-card-content {
     text-align: justify;
+    min-height: 100px;
+    max-height: 100px;
 }
 
 mat-divider {
@@ -147,4 +149,40 @@ mat-divider {
 
 .back {
     transform: rotateY(180deg);
+}
+
+.hand {
+    width: 70px;
+    height: 40px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.left-img {
+    margin-left: 2%;
+}
+
+.right-img {
+    margin-right: 2%;
+}
+
+.hands {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hand:hover {
+    animation: pulse 1s infinite; 
+}
+
+@keyframes pulse {
+0% {
+    transform: scale(1);
+}
+50% {
+    transform: scale(1.1);
+}
+100% {
+    transform: scale(1);
+}
 }

@@ -9,7 +9,6 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-
 @Component({
   selector: 'app-card-details',
   standalone: true,
@@ -22,20 +21,31 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatTooltipModule
   ],
   templateUrl: './card-details.component.html',
-  styleUrl: './card-details.component.css'
+  styleUrls: ['./card-details.component.css']
 })
 export class CardDetailsComponent implements OnInit {
 
   card!: Card;
-
-  ngOnInit(): void {}
+  cardList: Card[] = [];
+  currentIndex: number = 0;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     this.card = data.card;
+    this.cardList = data.cardList;
+    this.currentIndex = this.cardList.indexOf(this.card);
   }
+
+  ngOnInit(): void {}
 
   getColorForSet(set: string): string {
-    return Set [set as keyof typeof Set];
+    return Set[set as keyof typeof Set];
   }
 
+  nextCard(): void {
+    if (this.cardList.length === 0) return;
+
+    // get next card from the index
+    this.currentIndex = (this.currentIndex + 1) % this.cardList.length;
+    this.card = this.cardList[this.currentIndex];
+  }
 }

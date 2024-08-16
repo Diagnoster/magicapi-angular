@@ -43,8 +43,6 @@ export class CardListComponent implements OnInit {
   endCards = false;
   loading: boolean = true;
 
-  private searchTerms = new Subject<string>();
-
   constructor(private mtgService: MgtService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
@@ -150,10 +148,10 @@ export class CardListComponent implements OnInit {
     this.cardList = [card];
   }
 
-  cardDetails(card: any) {
+  cardDetails(card: any, cardList: Card[]) {
     this.dialog.open(CardDetailsComponent, {
       width: '500px',
-      data: { card },
+      data: { card, cardList },
     });
   }
 }
