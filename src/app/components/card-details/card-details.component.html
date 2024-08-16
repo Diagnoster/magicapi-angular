@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="container-div-1">
+    <div class="container-div-1" [@bounceInLeft]="bounceIn ? 'in' : ''">
         <h6>{{ card.name }}</h6>
         <p>{{ card.type }}</p>
         <div class="flip-container">
@@ -20,8 +20,8 @@
             <p class="label set"> Set: </p>
             <p class="value-set"> {{ card.set }} </p>
             @if(card.power || card.toughness != undefined) {
-            <p class="label pt"> P/T: </p>
-            <p class="power-toughness">{{ card.power + "/" + card.toughness }}</p>
+                <p class="label pt"> P/T: </p>
+                <p class="power-toughness">{{ card.power + "/" + card.toughness }}</p>
             }
         </div>
         <mat-divider></mat-divider>
@@ -33,22 +33,22 @@
                 <mat-tab label="Card Informations">
                     <mat-card-content class="informations">
                         @if(card.power !== undefined && card.power !== null) {
-                        <span>
-                            <span class="label"> Power: </span>
-                            <span class="value power">{{ card.power }}</span>
-                        </span>
+                            <span>
+                                <span class="label"> Power: </span>
+                                <span class="value power">{{ card.power }}</span>
+                            </span>
                         }
                         @if(card.toughness !== undefined && card.toughness !== null) {
-                        <span>
-                            <span class="label"> Toughness: </span>
-                            <span class="value toughness">{{ card.toughness }}</span>
-                        </span>
+                            <span>
+                                <span class="label"> Toughness: </span>
+                                <span class="value toughness">{{ card.toughness }}</span>
+                            </span>
                         }
                         @if(card.cmc !== undefined && card.cmc !== null) {
-                        <span>
-                            <span class="label"> Mana Value: </span>
-                            <span class="value cmc">{{ card.cmc }}</span>
-                        </span>
+                            <span>
+                                <span class="label"> Mana Value: </span>
+                                <span class="value cmc">{{ card.cmc }}</span>
+                            </span>
                         }
                         <span>
                             <span class="label"> Set Name: </span>

@@ -8,6 +8,8 @@ import { CommonModule } from '@angular/common';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+
 
 @Component({
   selector: 'app-card-details',
@@ -20,6 +22,19 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatIconModule,
     MatTooltipModule
   ],
+  animations: [
+    trigger('bounceInLeft', [
+      state('in', style({ transform: 'translateX(0)' })),
+      transition('void => *', [
+        animate('0.6s', keyframes([
+          style({ transform: 'translateX(-100%)', offset: 0 }),
+          style({ transform: 'translateX(30%)', offset: 0.6 }),
+          style({ transform: 'translateX(-10%)', offset: 0.75 }),
+          style({ transform: 'translateX(0)', offset: 1 })
+        ]))
+      ])
+    ])
+  ],
   templateUrl: './card-details.component.html',
   styleUrls: ['./card-details.component.css']
 })
@@ -28,6 +43,7 @@ export class CardDetailsComponent implements OnInit {
   card!: Card;
   cardList: Card[] = [];
   currentIndex: number = 0;
+  bounceIn = false;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: any) {
     this.card = data.card;
