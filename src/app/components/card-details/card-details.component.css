@@ -175,14 +175,29 @@ mat-divider {
     animation: pulse 1s infinite; 
 }
 
+.skull {
+    width: 50px;
+    height: 40px;
+    align-items: center;
+}
+
+.choose {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(65, 65, 65);
+    text-shadow: 1px 1px 2px black; 
+}
+
+
 @keyframes pulse {
-0% {
-    transform: scale(1);
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
-50% {
-    transform: scale(1.1);
-}
-100% {
-    transform: scale(1);
-}
-}
+
