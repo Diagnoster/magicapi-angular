@@ -41,11 +41,16 @@ export class CardDetailsComponent implements OnInit {
     return Set[set as keyof typeof Set];
   }
 
-  nextCard(): void {
+  nextCard(next: boolean): void {
     if (this.cardList.length === 0) return;
 
-    // get next card from the index
-    this.currentIndex = (this.currentIndex + 1) % this.cardList.length;
-    this.card = this.cardList[this.currentIndex];
+    if(next) {
+      this.currentIndex = (this.currentIndex + 1) % this.cardList.length;
+      this.card = this.cardList[this.currentIndex];
+    }
+    else {
+      this.currentIndex = (this.currentIndex - 1) % this.cardList.length;
+      this.card = this.cardList[this.currentIndex];
+    }
   }
 }
