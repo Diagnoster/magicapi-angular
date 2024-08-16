@@ -4,7 +4,6 @@ import { Observable, of, Subject } from 'rxjs';
 import { debounceTime, switchMap, map, startWith, filter } from 'rxjs/operators';
 import { MgtService } from '../../services/mgt.service';
 import { Card } from '../../models/card';
-import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { CardDetailsComponent } from '../card-details/card-details.component';
@@ -13,13 +12,13 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { AsyncPipe } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { trigger, state, style, animate, transition } from '@angular/animations';
 
 
 @Component({
   selector: 'app-card-list',
   standalone: true,
   imports: [
-    CommonModule,
     MatCardModule,
     MatDialogModule,
     MatInputModule,
@@ -27,12 +26,25 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatFormFieldModule,
     ReactiveFormsModule,
     MatProgressBarModule
+],
+  animations: [
+    trigger('pulseAnimation', [
+      state('normal', style({
+        transform: 'scale(1)'
+      })),
+      state('pulsing', style({
+        transform: 'scale(1.1)'
+      })),
+      transition('normal <=> pulsing', [
+        animate('1s ease-in-out')
+      ])
+    ])
   ],
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.css']
 })
 export class CardListComponent implements OnInit {
-  
+
   cardList: Card[] = [];
   filteredCards: Card[] = [];
   searchControl = new FormControl('');
@@ -42,14 +54,17 @@ export class CardListComponent implements OnInit {
   isLoading = false;
   endCards = false;
   loading: boolean = true;
+  hoveredCardNumber: string | null = null;
+  isPulsing = false;
+  hoveredCardIndex: number | null = null;
 
   constructor(private mtgService: MgtService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.loadCards();
-  
+
     this.searchControl.valueChanges.pipe(
-      debounceTime(300), // wait 300ms
+      debounceTime(300),
       filter(term => term !== ''),
       switchMap(term => this.mtgService.getFilteredCards(term!)),
       map(response => response.cards || [])
@@ -71,15 +86,13 @@ export class CardListComponent implements OnInit {
           cardData.imageUrl,
           cardData.flavor
         ));
-        this.loading = false;
+      this.loading = false;
     });
-  
-   // if term = ''
+
     this.searchControl.valueChanges.pipe(
       debounceTime(300),
-      filter(term => term === ''), 
+      filter(term => term === ''),
       switchMap(() => {
-        // reset variables and card list
         this.cardList = [];
         this.currentPage = 1;
         this.pageSize = 100;
@@ -153,5 +166,17 @@ export class CardListComponent implements OnInit {
       width: '500px',
       data: { card, cardList },
     });
+  }
+
+  onCardHover(index: number): void {
+    this.hoveredCardIndex = index;
+  }
+
+  onCardLeave(): void {
+    this.hoveredCardIndex = null;
+  }
+
+  getAnimationState(index: number): string {
+    return this.hoveredCardIndex === index ? 'pulsing' : 'normal';
   }
 }

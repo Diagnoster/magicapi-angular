@@ -4,6 +4,7 @@
     display: flex;
     border: 1px solid #000;
     overflow: hidden;
+    background-image: linear-gradient(to bottom, #7c7c7c, #8a8a8a, #999899, #a7a7a8, #b6b6b7, #c1c1c2, #cccccd, #d7d7d8, #e1e1e2, #ebebeb, #f5f5f5, #ffffff);
 }
 
 .container-div-1 {
