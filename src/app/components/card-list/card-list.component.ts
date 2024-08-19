@@ -84,7 +84,8 @@ export class CardListComponent implements OnInit {
           cardData.power,
           cardData.toughness,
           cardData.imageUrl,
-          cardData.flavor
+          cardData.flavor,
+          cardData.legalities
         ));
       this.loading = false;
     });
@@ -124,7 +125,8 @@ export class CardListComponent implements OnInit {
                   cardData.power,
                   cardData.toughness,
                   cardData.imageUrl,
-                  cardData.flavor
+                  cardData.flavor,
+                  cardData.legalities
                 );
                 this.cardList.push(card);
               }
@@ -162,6 +164,7 @@ export class CardListComponent implements OnInit {
   }
 
   cardDetails(card: any, cardList: Card[]) {
+    console.log(card);
     this.dialog.open(CardDetailsComponent, {
       width: '500px',
       data: { card, cardList },

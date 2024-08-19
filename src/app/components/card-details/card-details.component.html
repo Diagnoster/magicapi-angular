@@ -56,6 +56,13 @@
                         </span>
                     </mat-card-content>
                 </mat-tab>
+                <mat-tab label="Legalities">
+                    <mat-card-content class="legality">
+                        @for (legality of card.legalities; track legality) {
+                            <span class="label"> {{legality.format}} - {{legality.legality}} </span> 
+                        }
+                    </mat-card-content>
+                </mat-tab>
             </mat-tab-group>
         </mat-card>
         <div class="hands">

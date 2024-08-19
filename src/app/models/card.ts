@@ -1,3 +1,5 @@
+import { Legalities } from "./legalities";
+
 export class Card {
   name: string;
   type: string;
@@ -11,8 +13,9 @@ export class Card {
   toughness: string;
   imageUrl: string;
   flavor: string;
+  legalities: Legalities[];
 
-  constructor(name: string, type: string, rarity: string, set: string, setName: string, cmc: string, number: string, text: string, power: string, toughness: string, imageUrl: string, flavor: string) {
+  constructor(name: string, type: string, rarity: string, set: string, setName: string, cmc: string, number: string, text: string, power: string, toughness: string, imageUrl: string, flavor: string, legalities: Legalities[]) {
     this.name = name;
     this.type = type;
     this.rarity = rarity;
@@ -25,5 +28,6 @@ export class Card {
     this.toughness = toughness;
     this.imageUrl = imageUrl;
     this.flavor = flavor;
+    this.legalities = legalities;
   }
  }

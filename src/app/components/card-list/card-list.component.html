@@ -1,33 +1,33 @@
 <div class="search-container">
-    <mat-form-field appearance="fill">
-      <mat-label>Search Cards</mat-label>
-      <input matInput [formControl]="searchControl" [matAutocomplete]="auto">
-      <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCardSelected($event.option.value)">
-        @for (card of filteredCards; track card) {
-          <mat-option [value]="card">
-            {{card.name}}
-          </mat-option>
-        }
-      </mat-autocomplete>
-    </mat-form-field>
-  </div>
-  <div class="card-container">
-    @for (card of cardList; track card; let i = $index) {
-      <mat-card
-        class="card"
-        [@pulseAnimation]="getAnimationState(i)"
-        (mouseover)="onCardHover(i)"
-        (mouseleave)="onCardLeave()"
-        (click)="cardDetails(card, cardList)">
-        <mat-card-header>
-          <mat-card-title>
-            <span class="card-number">{{card.number}} {{card.name}}</span>
-          </mat-card-title>
-        </mat-card-header>
-        <img class="img" [src]="card.imageUrl" alt="Card Image {{card.name}}">
-      </mat-card>
-    }
-  </div>
-  @if (loading) {
-    <mat-progress-bar mode="query"></mat-progress-bar>
+  <mat-form-field appearance="fill">
+    <mat-label>Search Cards</mat-label>
+    <input matInput [formControl]="searchControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCardSelected($event.option.value)">
+      @for (card of filteredCards; track card) {
+        <mat-option [value]="card">
+          {{card.name}}
+        </mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+<div class="card-container">
+  @for (card of cardList; track card; let i = $index) {
+    <mat-card
+      class="card"
+      [@pulseAnimation]="getAnimationState(i)"
+      (mouseover)="onCardHover(i)"
+      (mouseleave)="onCardLeave()"
+      (click)="cardDetails(card, cardList)">
+      <mat-card-header>
+        <mat-card-title>
+          <span class="card-number">{{card.number}} {{card.name}}</span>
+        </mat-card-title>
+      </mat-card-header>
+      <img class="img" [src]="card.imageUrl" alt="Card Image {{card.name}}">
+    </mat-card>
   }
+</div>
+@if (loading) {
+  <mat-progress-bar mode="query"></mat-progress-bar>
+}
