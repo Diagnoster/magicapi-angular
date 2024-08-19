@@ -1,76 +1,83 @@
 <div class="container">
     <div class="container-div-1" [@bounceInLeft]="bounceIn ? 'in' : ''">
-        <h6>{{ card.name }}</h6>
-        <p>{{ card.type }}</p>
-        <div class="flip-container">
-            <div class="flipper">
-                <div class="front">
-                    <img class="img" [src]="card.imageUrl" alt="Card Image {{card.name}}">
-                </div>
-                <div class="back">
-                    <img class="img" src="backCard.webp" alt="Back Image">
-                </div>
-            </div>
+      <h6>{{ card.name }}</h6>
+      <p>{{ card.type }}</p>
+      <div class="flip-container">
+        <div class="flipper">
+          <div class="front">
+            <img class="img" [src]="card.imageUrl" alt="Card Image {{card.name}}">
+          </div>
+          <div class="back">
+            <img class="img" src="backCard.webp" alt="Back Image">
+          </div>
         </div>
-        <div class="extra-info">
-            <mat-icon class="flavor" aria-hidden="false" aria-label="Chat icon" fontIcon="chat"
-                matTooltip="{{card.flavor}}"></mat-icon>
-            <p class="label rarity"> Rarity: </p>
-            <p class="value-info" [ngStyle]="{ 'color': getColorForSet(card.rarity) }"> {{ card.rarity }} </p>
-            <p class="label set"> Set: </p>
-            <p class="value-set"> {{ card.set }} </p>
-            @if(card.power || card.toughness != undefined) {
-                <p class="label pt"> P/T: </p>
-                <p class="power-toughness">{{ card.power + "/" + card.toughness }}</p>
-            }
-        </div>
-        <mat-divider></mat-divider>
-        <mat-card appearance="outlined">
-            <mat-tab-group>
-                <mat-tab label="Description">
-                    <mat-card-content>{{ card.text }}</mat-card-content>
-                </mat-tab>
-                <mat-tab label="Card Informations">
-                    <mat-card-content class="informations">
-                        @if(card.power !== undefined && card.power !== null) {
-                            <span>
-                                <span class="label"> Power: </span>
-                                <span class="value power">{{ card.power }}</span>
-                            </span>
-                        }
-                        @if(card.toughness !== undefined && card.toughness !== null) {
-                            <span>
-                                <span class="label"> Toughness: </span>
-                                <span class="value toughness">{{ card.toughness }}</span>
-                            </span>
-                        }
-                        @if(card.cmc !== undefined && card.cmc !== null) {
-                            <span>
-                                <span class="label"> Mana Value: </span>
-                                <span class="value cmc">{{ card.cmc }}</span>
-                            </span>
-                        }
-                        <span>
-                            <span class="label"> Set Name: </span>
-                            <span class="value-set">{{ card.setName }}</span>
-                        </span>
-                    </mat-card-content>
-                </mat-tab>
-                <mat-tab label="Legalities">
-                    <mat-card-content class="legality">
-                        @for (legality of card.legalities; track legality) {
-                            <span class="label"> {{legality.format}} - {{legality.legality}} </span> 
-                        }
-                    </mat-card-content>
-                </mat-tab>
-            </mat-tab-group>
-        </mat-card>
-        <div class="hands">
-            <img class="hand left-img" src="hand_left.png" alt="Left hand image" (click)="nextCard(false)">
-            <span class="choose">Choose</span>
-            <img class="skull" src="skull.webp" alt="Skull image">
-            <span class="choose">Card</span>
-            <img class="hand right-img" src="hand_right.png" alt="Right hand image" (click)="nextCard(true)">
-        </div>
+      </div>
+      <div class="extra-info">
+        <mat-icon class="flavor" aria-hidden="false" aria-label="Chat icon" fontIcon="chat"
+        matTooltip="{{card.flavor}}"></mat-icon>
+        <p class="label rarity"> Rarity: </p>
+        <p class="value-info" [ngStyle]="{ 'color': getColorForSet(card.rarity) }"> {{ card.rarity }} </p>
+        <p class="label set"> Set: </p>
+        <p class="value-set"> {{ card.set }} </p>
+        @if(card.power || card.toughness != undefined) {
+          <p class="label pt"> P/T: </p>
+          <p class="power-toughness">{{ card.power + "/" + card.toughness }}</p>
+        }
+      </div>
+      <mat-divider></mat-divider>
+      <mat-card appearance="outlined">
+        <mat-tab-group>
+          <mat-tab label="Description">
+            <mat-card-content>{{ card.text }}</mat-card-content>
+          </mat-tab>
+          <mat-tab label="Card Informations">
+            <mat-card-content class="informations">
+              @if(card.power !== undefined && card.power !== null) {
+                <span>
+                  <span class="label"> Power: </span>
+                  <span class="value power">{{ card.power }}</span>
+                </span>
+              }
+              @if(card.toughness !== undefined && card.toughness !== null) {
+                <span>
+                  <span class="label"> Toughness: </span>
+                  <span class="value toughness">{{ card.toughness }}</span>
+                </span>
+              }
+              @if(card.cmc !== undefined && card.cmc !== null) {
+                <span>
+                  <span class="label"> Mana Value: </span>
+                  <span class="value cmc">{{ card.cmc }}</span>
+                </span>
+              }
+              <span>
+                <span class="label"> Set Name: </span>
+                <span class="value-set">{{ card.setName }}</span>
+              </span>
+            </mat-card-content>
+          </mat-tab>
+          <mat-tab label="Legalities">
+            <mat-card-content class="legality">
+              @for (legality of card.legalities; track legality) {
+                <span class="label">
+                  {{legality.format}} -
+                  @if (legality.legality === 'Legal') {
+                    <img src="verificado.png" alt="Legal" class="legality-icon" matTooltip="{{legality.legality}}">
+                  } @else {
+                    <img src="exclamacao.png" alt="Restricted" class="legality-icon" matTooltip="{{legality.legality}}">
+                  }
+                </span>
+              }
+            </mat-card-content>
+          </mat-tab>
+        </mat-tab-group>
+      </mat-card>
+      <div class="hands">
+        <img class="hand left-img" src="hand_left.png" alt="Left hand image" (click)="nextCard(false)">
+        <span class="choose">Choose</span>
+        <img class="skull" src="skull.webp" alt="Skull image">
+        <span class="choose">Card</span>
+        <img class="hand right-img" src="hand_right.png" alt="Right hand image" (click)="nextCard(true)">
+      </div>
     </div>
-</div>
+  </div>
