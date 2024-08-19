@@ -34,7 +34,10 @@ Make sure you have Node.js and Angular CLI installed on your machine.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
 ## Credits
-#### https://magicthegathering.io/ - Credits to Magic The Gathering for providing the API for data retrieval.
+#### Credits to Magic The Gathering for providing the API for data retrieval : https://magicthegathering.io/ 
+#### Icons: </br> <a href="https://www.flaticon.com/br/icones-gratis/carraca" title="carraça ícones">Carraça ícones criados por Roundicons / Flaticon</a> </br> <a href="https://www.flaticon.com/br/icones-gratis/ponto-de-exclamacao" title="ponto de exclamação ícones">Ponto de exclamação ícones criados por Flat Icons - Flaticon</a>
+
+
 
 ## About
 This software is 100% free, open-source and unlicensed.
