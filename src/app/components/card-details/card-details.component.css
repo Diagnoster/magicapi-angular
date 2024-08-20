@@ -71,7 +71,7 @@ mat-divider {
     font-size: 20px;
     font-weight: bold;
     color: darkgreen;
-    text-shadow: 1px 1px 2px black; 
+    text-shadow: 1px 1px 2px black;
     padding-right: 3%;
 }
 
@@ -95,7 +95,7 @@ mat-divider {
 .value {
     font-size: 20px;
     font-weight: bold;
-    text-shadow: 1px 1px 2px black; 
+    text-shadow: 1px 1px 2px black;
 }
 
 .power {
@@ -135,7 +135,8 @@ mat-divider {
     transform: rotateY(180deg);
 }
 
-.front, .back {
+.front,
+.back {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -173,7 +174,7 @@ mat-divider {
 }
 
 .hand:hover {
-    animation: pulse 1s infinite; 
+    animation: pulse 1s infinite;
 }
 
 .skull {
@@ -186,7 +187,7 @@ mat-divider {
     font-size: 20px;
     font-weight: bold;
     color: rgb(65, 65, 65);
-    text-shadow: 1px 1px 2px black; 
+    text-shadow: 1px 1px 2px black;
 }
 
 
@@ -194,9 +195,11 @@ mat-divider {
     0% {
         transform: scale(1);
     }
+
     50% {
         transform: scale(1.1);
     }
+
     100% {
         transform: scale(1);
     }
@@ -205,4 +208,18 @@ mat-divider {
 .legality {
     display: flex;
     flex-direction: column;
+}
+
+.artist {
+    font-size: 18px;
+    color: black;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    background-color: white;
+    border-radius: 20px;
+    padding: 3px;
 }
