@@ -184,4 +184,8 @@ export class CardListComponent implements OnInit {
   getAnimationState(index: number): string {
     return this.hoveredCardIndex === index ? 'pulsing' : 'normal';
   }
+
+  displayCardName(card: Card): string {
+    return card ? card.name : '';
+  }
 }
