@@ -13,6 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AsyncPipe } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { trigger, state, style, animate, transition } from '@angular/animations';
+import { MatIconModule } from '@angular/material/icon';
 
 
 @Component({
@@ -25,7 +26,9 @@ import { trigger, state, style, animate, transition } from '@angular/animations'
     MatAutocompleteModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatInputModule,
+    MatIconModule
 ],
   animations: [
     trigger('pulseAnimation', [
@@ -187,5 +190,9 @@ export class CardListComponent implements OnInit {
 
   displayCardName(card: Card): string {
     return card ? card.name : '';
+  }
+  
+  clearSearch(): void {
+    this.searchControl.setValue('');
   }
 }

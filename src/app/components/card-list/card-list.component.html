@@ -2,6 +2,9 @@
   <mat-form-field appearance="fill">
     <mat-label>Search Cards</mat-label>
     <input matInput [formControl]="searchControl" [matAutocomplete]="auto">
+    <button matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+      <mat-icon>close</mat-icon>
+    </button>
     <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onCardSelected($event.option.value)"
       [displayWith]="displayCardName">
       @for (card of filteredCards; track card) {
