@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { Observable, of, Subject } from 'rxjs';
-import { debounceTime, switchMap, map, startWith, filter } from 'rxjs/operators';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { of } from 'rxjs';
+import { debounceTime, switchMap, map, filter } from 'rxjs/operators';
 import { MgtService } from '../../services/mgt.service';
 import { Card } from '../../models/card';
 import { MatCardModule } from '@angular/material/card';
@@ -10,7 +10,6 @@ import { CardDetailsComponent } from '../card-details/card-details.component';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { AsyncPipe } from '@angular/common';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { trigger, state, style, animate, transition } from '@angular/animations';
 import { MatIconModule } from '@angular/material/icon';
