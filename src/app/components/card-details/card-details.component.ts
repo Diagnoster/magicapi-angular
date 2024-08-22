@@ -56,8 +56,12 @@ export class CardDetailsComponent implements OnInit {
   }
 
   replaceTapSymbol(text: string): string {
-    text = text.replace(/{T}/g, '<img class="flip-img" src="flip.png" alt="Back Image">');
-    return text.replace(/{W}/g, '<img class="flip-img" src="asterisk.png" alt="Asterisk">');
+    text = text.replace(/{T}/g, '<img class="flip-img" src="flip.png" alt="Flip icon">');
+    text = text.replace(/{U}/g, '<img class="flip-img" src="ink_magic.png" alt="Ink icon">');
+    text = text.replace(/{B}/g, '<img class="flip-img" src="skull.png" alt="Skull icon">');
+    text = text.replace(/{R}/g, '<img class="flip-img" src="flame.png" alt="Flame icon">');
+    text = text.replace(/{G}/g, '<img class="flip-img" src="tree.png" alt="Tree icon">');
+    return text.replace(/{W}/g, '<img class="flip-img" src="asterisk.png" alt="Asterisk icon">');
   }
 
   getColorForSet(set: string): string {
