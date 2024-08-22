@@ -9,7 +9,12 @@
         </div>
         <div class="back">
           <img class="img" src="backCard.webp" alt="Back Image">
-          <span class="artist"> Artist <br/> {{ card.artist }}</span>
+          <mat-card appearance="outlined" class="artist">
+            <mat-card-header >
+              <mat-card-title>{{card.artist}}</mat-card-title>
+              <mat-card-subtitle>Artist</mat-card-subtitle>
+            </mat-card-header>
+          </mat-card>
         </div>
       </div>
     </div>

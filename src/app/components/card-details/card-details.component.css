@@ -223,3 +223,7 @@ mat-divider {
     border-radius: 20px;
     padding: 3px;
 }
+
+mat-card-subtitle {
+    color: blue;
+}
