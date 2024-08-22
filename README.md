@@ -32,6 +32,9 @@ Make sure you have Node.js and Angular CLI installed on your machine.
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+#### Material Components: <a href="https://material.angular.io/components/categories"> Angular Material Components </a> 
+#### More about Magic: <a href="https://mtg.fandom.com/wiki/Main_Page"> MTG Wiki </a> 
+
 
 ## Credits
 #### Credits to Magic The Gathering for providing the API for data retrieval : https://magicthegathering.io/ 
