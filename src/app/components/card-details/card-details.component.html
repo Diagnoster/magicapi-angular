@@ -34,7 +34,7 @@
     <mat-card appearance="outlined">
       <mat-tab-group>
         <mat-tab label="Description">
-          <mat-card-content>{{ card.text }}</mat-card-content>
+          <mat-card-content [innerHTML]="card.text"></mat-card-content>
         </mat-tab>
         <mat-tab label="Card Informations">
           <mat-card-content class="informations">

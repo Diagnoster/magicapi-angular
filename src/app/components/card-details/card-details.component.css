@@ -227,3 +227,9 @@ mat-divider {
 mat-card-subtitle {
     color: blue;
 }
+
+.flip-img {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+}

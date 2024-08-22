@@ -51,7 +51,14 @@ export class CardDetailsComponent implements OnInit {
     this.currentIndex = this.cardList.indexOf(this.card);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.card.text = this.replaceTapSymbol(this.card.text);
+  }
+
+  replaceTapSymbol(text: string): string {
+    text = text.replace(/{T}/g, '<img class="flip-img" src="flip.png" alt="Back Image">');
+    return text.replace(/{W}/g, '<img class="flip-img" src="asterisk.png" alt="Asterisk">');
+  }
 
   getColorForSet(set: string): string {
     return Set[set as keyof typeof Set];
@@ -60,13 +67,16 @@ export class CardDetailsComponent implements OnInit {
   nextCard(next: boolean): void {
     if (this.cardList.length === 0) return;
 
-    if(next) {
+    if (next) {
       this.currentIndex = (this.currentIndex + 1) % this.cardList.length;
-      this.card = this.cardList[this.currentIndex];
+    } else {
+      this.currentIndex = (this.currentIndex - 1 + this.cardList.length) % this.cardList.length;
     }
-    else {
-      this.currentIndex = (this.currentIndex - 1) % this.cardList.length;
-      this.card = this.cardList[this.currentIndex];
-    }
+
+    this.card = this.cardList[this.currentIndex];
+    this.card.text = this.replaceTapSymbol(this.card.text);
+
+    this.bounceIn = false;
+    setTimeout(() => this.bounceIn = true, 0);
   }
 }
