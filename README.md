@@ -35,7 +35,10 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Credits
 #### Credits to Magic The Gathering for providing the API for data retrieval : https://magicthegathering.io/ 
-#### Icons: </br> <a href="https://www.flaticon.com/br/icones-gratis/carraca" title="carraça ícones">Carraça ícones criados por Roundicons / Flaticon</a> </br> <a href="https://www.flaticon.com/br/icones-gratis/ponto-de-exclamacao" title="ponto de exclamação ícones">Ponto de exclamação ícones criados por Flat Icons - Flaticon</a>
+#### Icons: </br> <a href="https://www.flaticon.com/br/icones-gratis/carraca" title="carraça ícones">Carraça ícones criados por Roundicons / Flaticon</a> 
+#### <a href="https://www.flaticon.com/br/icones-gratis/ponto-de-exclamacao" title="ponto de exclamação ícones">Ponto de exclamação ícones criados por Flat Icons - Flaticon</a>
+#### <a href="https://www.flaticon.com/br/icones-gratis/asterisco" title="asterisco ícones">Asterisco ícones criados por Freepik - Flaticon</a>
+
 
 
 
