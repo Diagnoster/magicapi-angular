@@ -61,6 +61,8 @@ export class CardDetailsComponent implements OnInit {
     text = text.replace(/{B}/g, '<img class="flip-img" src="skull.png" alt="Skull icon">');
     text = text.replace(/{R}/g, '<img class="flip-img" src="flame.png" alt="Flame icon">');
     text = text.replace(/{G}/g, '<img class="flip-img" src="tree.png" alt="Tree icon">');
+    text = text.replace(/{X}/g, '<img class="flip-img" src="x.png" alt="X icon">');
+    text = text.replace(/{C}/g, '<img class="flip-img" src="mana_symbol.png" alt="Mana Symbol icon">');
     return text.replace(/{W}/g, '<img class="flip-img" src="asterisk.png" alt="Asterisk icon">');
   }
 
