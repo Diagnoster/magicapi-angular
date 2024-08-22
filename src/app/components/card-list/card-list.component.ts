@@ -168,7 +168,6 @@ export class CardListComponent implements OnInit {
   }
 
   cardDetails(card: any, cardList: Card[]) {
-    console.log(card);
     this.dialog.open(CardDetailsComponent, {
       width: '500px',
       data: { card, cardList },

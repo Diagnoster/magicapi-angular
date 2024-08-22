@@ -56,15 +56,25 @@ export class CardDetailsComponent implements OnInit {
   }
 
   replaceTapSymbol(text: string): string {
-    text = text.replace(/{T}/g, '<img class="flip-img" src="flip.png" alt="Flip icon">');
-    text = text.replace(/{U}/g, '<img class="flip-img" src="ink_magic.png" alt="Ink icon">');
-    text = text.replace(/{B}/g, '<img class="flip-img" src="skull.png" alt="Skull icon">');
-    text = text.replace(/{R}/g, '<img class="flip-img" src="flame.png" alt="Flame icon">');
-    text = text.replace(/{G}/g, '<img class="flip-img" src="tree.png" alt="Tree icon">');
-    text = text.replace(/{X}/g, '<img class="flip-img" src="x.png" alt="X icon">');
-    text = text.replace(/{C}/g, '<img class="flip-img" src="mana_symbol.png" alt="Mana Symbol icon">');
-    return text.replace(/{W}/g, '<img class="flip-img" src="asterisk.png" alt="Asterisk icon">');
+    const symbolMap: { [key: string]: string } = {
+      '{T}': 'flip.png',
+      '{U}': 'ink_magic.png',
+      '{B}': 'skull.png',
+      '{R}': 'flame.png',
+      '{G}': 'tree.png',
+      '{X}': 'x.png',
+      '{C}': 'mana_symbol.png',
+      '{W}': 'asterisk.png'
+    };
+  
+    for (const symbol in symbolMap) {
+      const imgTag = `<img class="flip-img" src="${symbolMap[symbol]}" alt="${symbolMap[symbol].split('.')[0]} icon">`;
+      text = text.replace(new RegExp(symbol, 'g'), imgTag);
+    }
+  
+    return text;
   }
+  
 
   getColorForSet(set: string): string {
     return Set[set as keyof typeof Set];
